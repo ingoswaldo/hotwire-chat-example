@@ -1,0 +1,40 @@
+require:
+  - rubocop-rails
+  - rubocop-capybara
+
+AllCops:
+  Exclude:
+    - '**/assets/**/*'
+    - '**/javascript/**/*'
+    - '**/views/**/*'
+    - '**/bin/**/*'
+    - '**/coverage/**/*'
+    - '**/db/migrate/*'
+    - '**/db/**/schema.rb'
+    - '**/log/**/*'
+    - '**/public/**/*'
+    - '**/storage/**/*'
+    - '**/script/**/*'
+    - '**/vendor/**/*'
+    - '**/tmp/**/*'
+    - '**/node_modules/**/*'
+    - '**/config/**/*'
+    - 'Gemfile*'
+    - 'Rakefile*'
+    - 'config.ru'
+    - '**/lib/tasks/auto_annotate_models.rake'
+  ExtraDetails: true
+  NewCops: enable
+  TargetRubyVersion: 3.1.2
+
+# Style
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always_true
+
+Style/Documentation:
+  Enabled: false
+
+Style/ReturnNil:
+  Description: 'Use return instead of return nil.'
+  Enabled: true
