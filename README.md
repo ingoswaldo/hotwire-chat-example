@@ -1,5 +1,5 @@
 # Hotwire Chat Example
-This is a **RoR** chat using hotwire,
+This is a **RoR** chat using hotwire.
 
 ## Running
 
