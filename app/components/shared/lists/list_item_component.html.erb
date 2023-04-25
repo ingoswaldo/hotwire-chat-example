@@ -1,0 +1,8 @@
+<li>
+  <% if @negative_check %>
+    <%= inline_svg_tag 'negative-cross-mark.svg', class: 'text-error', style: 'display: flex' %>
+  <% else %>
+    <%= inline_svg_tag 'check.svg', class: 'text-error', style: 'display: flex' %>
+  <% end %>
+  <span class="text-sm sm:text-base text-error"><%= @text %></span>
+</li>
