@@ -2,4 +2,5 @@
 
 class User < ApplicationRecord
   include Authenticable
+  include Users::Chatable
 end
