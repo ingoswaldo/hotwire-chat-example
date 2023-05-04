@@ -6,9 +6,16 @@
 #
 one: {
    email: 'first@example.com',
+   full_name: 'user one',
 }
 
 two: {
   email: 'second@example.com',
+  full_name: 'user two'
 }
 
+confirmed: {
+  email: 'confirmed@example.com',
+  full_name: 'user confirmed',
+  confirmed_at: '<%= Time.zone.now %>'
+}

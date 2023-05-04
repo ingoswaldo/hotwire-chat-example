@@ -1,0 +1,2 @@
+<%= turbo_stream.update 'new-chat', partial: 'form', locals: { chat: Chat.new, users: @users || [] } %>
+<%= turbo_stream.prepend 'chats-list', partial: 'chat', locals: { chat: @chat } %>
