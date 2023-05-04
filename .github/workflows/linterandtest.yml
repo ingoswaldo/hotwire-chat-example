@@ -36,6 +36,9 @@ jobs:
       # Set up database
       - name: Set up database schema
         run: bin/rails db:schema:load
+      # Install daisyui
+      - name: Install Daisyui
+        run: npm i daisyui
       # Run tests
       - name: Run tests
         run: bundle exec rails test:prepare test
