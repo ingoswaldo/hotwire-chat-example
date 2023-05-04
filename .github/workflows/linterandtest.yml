@@ -28,17 +28,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      # Add or replace dependency steps here
+      # Install Ruby gems
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      # Add or replace database setup steps here
+      # Set up database
       - name: Set up database schema
         run: bin/rails db:schema:load
-      # Add or replace test runners here
+      # Run tests
       - name: Run tests
-        run: bundle exec rails test
+        run: bundle exec rails test:prepare test
 
   rubocop:
     runs-on: ubuntu-latest
