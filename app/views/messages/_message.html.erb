@@ -1,0 +1,9 @@
+<% if message.user == @user %>
+  <div class="chat chat-end">
+    <div class="chat-bubble chat-bubble-success text-base-100"><%= message.message %></div>
+  </div>
+<% else %>
+  <div class="chat chat-start">
+    <div class="chat-bubble"><%= message.message %></div>
+  </div>
+<% end %>

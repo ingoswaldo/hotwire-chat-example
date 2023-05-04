@@ -4,8 +4,10 @@ one:
   status: 1
   message: MyString
   chat: one
+  user: one
 
 two:
   status: 1
   message: MyString
   chat: two
+  user: two

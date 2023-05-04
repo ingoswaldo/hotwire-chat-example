@@ -5,7 +5,7 @@ export default class extends Controller {
         modalId: String
     }
 
-    reset() {
+    reset(event) {
         if(event.detail.formSubmission.result.fetchResponse.statusCode === 200) {
             document.getElementById(this.modalIdValue).checked = false
         }
