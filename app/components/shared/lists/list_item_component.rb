@@ -4,9 +4,9 @@ module Shared
   module Lists
     class ListItemComponent < ViewComponent::Base
       def initialize(text:, negative_check:)
-        super
         @text = text
         @negative_check = negative_check
+        super
       end
     end
   end

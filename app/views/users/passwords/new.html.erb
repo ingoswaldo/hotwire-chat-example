@@ -1,6 +1,6 @@
 <%= render Layout::CardCenteredComponent.new(title: 'Forgot your password?') do %>
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-    <%= render "users/shared/error_messages", resource: resource %>
+    <%= render "shared/error_messages", resource: resource %>
 
     <div class="form-control">
       <div class="field">

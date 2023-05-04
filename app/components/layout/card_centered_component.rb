@@ -3,8 +3,8 @@
 module Layout
   class CardCenteredComponent < ViewComponent::Base
     def initialize(title:)
-      super
       @title = title
+      super
     end
   end
 end

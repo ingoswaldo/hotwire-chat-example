@@ -3,4 +3,6 @@
 class User < ApplicationRecord
   include Authenticable
   include Users::Chatable
+  include Users::Scopeable
+  include Users::Validatable
 end

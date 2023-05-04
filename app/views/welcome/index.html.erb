@@ -10,7 +10,7 @@
             </div>
           </div>
           <div class="flex justify-center">
-            <label for="#" class="btn btn-ghost btn-circle">
+            <label for="modal-new-chat" class="btn btn-ghost btn-circle">
               <%= image_tag 'chat.svg', class: 'w-8' %>
             </label>
             <%= render Shared::Lists::DropdownComponent.new do |dropdown| %>
@@ -32,38 +32,7 @@
         </div>
       </div>
       <div class="overflow-y-auto h-[calc(100vh-8.5rem)]">
-        <div class="flex bg-gray-100 h-20 p-5">
-          <div class="basis-1/6">
-            <div class="avatar">
-              <div class="w-10 rounded-full">
-                <%= image_tag 'avatar.svg' %>
-              </div>
-            </div>
-          </div>
-          <div class="basis-4/5 max-w-[14rem]">
-            <h3 class="font-semibold capitalize">Username</h3>
-            <p class="font-light text-sm truncate">message</p>
-          </div>
-          <div class="basis-1/6">
-            <h3 class="font-light text-sm capitalize">yesterday</h3>
-          </div>
-        </div>
-        <div class="flex h-20 p-5">
-          <div class="basis-1/6">
-            <div class="avatar">
-              <div class="w-10 rounded-full">
-                <%= image_tag 'avatar.svg' %>
-              </div>
-            </div>
-          </div>
-          <div class="basis-4/5 max-w-[14rem]">
-            <h3 class="font-semibold capitalize">Username 2</h3>
-            <p class="font-light text-sm truncate">message</p>
-          </div>
-          <div class="basis-1/6">
-            <h3 class="font-light text-sm capitalize">12:21</h3>
-          </div>
-        </div>
+        <%= turbo_frame_tag 'chats-list', src: chats_path %>
       </div>
     </div>
     <div class="basis-3/4 shadow-md">
@@ -94,3 +63,6 @@
     </div>
   </div>
 </div>
+<%= render Layout::ModalComponent.new(title: 'Start Chat', id: 'modal-new-chat') do %>
+  <%= turbo_frame_tag 'new-chat', src: new_chat_path %>
+<% end %>

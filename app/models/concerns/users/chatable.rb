@@ -8,5 +8,7 @@ module Users
       has_many :creators, class_name: 'Chat', foreign_key: :creator_id, inverse_of: :creator, dependent: :destroy
       has_many :receivers, class_name: 'Chat', foreign_key: :receiver_id, inverse_of: :receiver, dependent: :destroy
     end
+
+    def my_chats = creators.or(receivers)
   end
 end
