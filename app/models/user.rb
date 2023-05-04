@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   include Authenticable
+  include Avatarable
   include Users::Chatable
   include Users::Scopeable
   include Users::Validatable
