@@ -6,7 +6,7 @@ module Layout
   module Chat
     class UserComponentTest < ViewComponent::TestCase
       def test_render_component
-        render_inline(UserComponent.new(chat: chats(:one), user_logged_in: users(:confirmed)))
+        render_inline(UserComponent.new(chat: chats(:one), user_logged_in: users(:one)))
 
         assert_text(chats(:one).receiver.full_name)
       end

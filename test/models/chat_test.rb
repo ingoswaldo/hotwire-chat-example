@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ChatTest < ActiveSupport::TestCase
   test 'should save chat' do
-    chat = Chat.new(creator: users(:one), receiver: users(:two))
+    chat = Chat.new(creator: users(:one), receiver: users(:confirmed))
     assert chat.save
   end
 

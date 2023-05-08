@@ -7,8 +7,8 @@
     </div>
     <p class="self-center p-5 font-bold capitalize"><%= user.full_name %></p>
   </div>
-  <div class="grid overflow-y-auto h-[calc(100vh-14.5rem)] p-10">
-    <%= render partial: 'messages/message', collection: messages, locales: { user: user } %>
+  <div class="grid overflow-y-auto h-[calc(100vh-14.5rem)] p-10" id="messages" data-controller="messages" data-messages-target="container" data-messages-current-user-id-value="<%= @user_logged_in.id %>">
+    <%= render partial: 'messages/message', collection: messages %>
     <%= helpers.turbo_stream_from 'messages-list' %>
   </div>
   <div class="bg-gray-100 h-24 grid gap-3">

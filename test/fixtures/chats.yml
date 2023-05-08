@@ -2,8 +2,8 @@
 
 one:
   creator: one
-  receiver: one
+  receiver: two
 
 two:
   creator: two
-  receiver: two
+  receiver: one

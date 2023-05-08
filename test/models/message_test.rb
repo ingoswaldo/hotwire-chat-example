@@ -4,7 +4,7 @@ require 'test_helper'
 
 class MessageTest < ActiveSupport::TestCase
   test 'should save message' do
-    message = Message.new(message: 'whatever', chat: chats(:one))
+    message = Message.new(message: 'whatever', chat: chats(:one), user: users(:two))
     assert message.save
   end
 
