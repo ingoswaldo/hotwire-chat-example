@@ -1,0 +1,8 @@
+<%= form_with(model: Message.new, url: chat_messages_path(@chat), class: 'flex content-end justify-between p-5', data: { controller: 'messages', action: 'turbo:submit-end->messages#reset' }) do |f| %>
+
+  <%= f.text_field :message, autofocus: true, class: 'input input-bordered focus:input-accent w-full', placeholder: 'Type here' %>
+
+  <%= f.button class: 'btn btn-circle btn-ghost m-1' do %>
+    <%= inline_svg 'send.svg', class: 'w-8 text-success' %>
+  <% end %>
+<% end %>

@@ -36,29 +36,8 @@
       </div>
     </div>
     <div class="basis-3/4 shadow-md">
-      <div class="flex p-5 h-24 bg-gray-100">
-        <div class="avatar">
-          <div class="w-12 rounded-full">
-            <%= image_tag 'avatar.svg' %>
-          </div>
-        </div>
-        <p class="self-center p-5 font-bold capitalize">username</p>
-      </div>
-      <div class="grid content-end h-[calc(100vh-14.5rem)] overflow-y-auto p-10">
-        <div class="chat chat-start">
-          <div class="chat-bubble">What kind of nonsense is this</div>
-        </div>
-        <div class="chat chat-end">
-          <div class="chat-bubble chat-bubble-success text-base-100">It's never happened before.</div>
-        </div>
-      </div>
-      <div class="bg-gray-100 h-24 grid gap-3">
-        <form class="flex content-end justify-between p-5">
-          <input type="text" placeholder="Type here" class="input input-bordered focus:input-accent w-full" />
-          <button type="submit" class="btn btn-circle btn-ghost m-1">
-            <%= inline_svg 'send.svg', class: 'w-8 text-success' %>
-          </button>
-        </form>
+      <div id="chat-selected" class="grid grid-cols-1 place-items-center h-full">
+        <p class="font-bold">No Chats selected</p>
       </div>
     </div>
   </div>
