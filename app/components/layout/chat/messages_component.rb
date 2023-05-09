@@ -4,8 +4,8 @@ module Layout
   module Chat
     class MessagesComponent < ViewComponent::Base
       def initialize(chat:, user_logged_in:)
-        @user_logged_in = user_logged_in
         @chat = chat
+        @user_logged_in = user_logged_in
         super
       end
 

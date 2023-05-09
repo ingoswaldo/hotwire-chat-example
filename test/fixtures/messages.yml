@@ -2,12 +2,12 @@
 
 one:
   status: 1
-  message: MyString
+  message: message 1
   chat: one
   user: one
 
 two:
   status: 1
-  message: MyString
+  message: message 2
   chat: two
   user: two

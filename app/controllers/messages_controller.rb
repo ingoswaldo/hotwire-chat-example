@@ -7,6 +7,8 @@ class MessagesController < ApplicationController
     render layout: false
   end
 
+  def new; end
+
   def create
     @message = @user.messages.create(message_params.merge({ chat: @chat }))
 

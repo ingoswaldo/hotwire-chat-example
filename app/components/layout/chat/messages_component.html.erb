@@ -13,7 +13,7 @@
   </div>
   <div class="bg-gray-100 h-24 grid gap-3">
     <%= helpers.turbo_frame_tag 'new-message' do %>
-      <%= render 'messages/form' %>
+      <%= render 'messages/form', :@chat => @chat %>
     <% end %>
   </div>
 </div>
