@@ -6,9 +6,10 @@ export default class extends Controller {
     }
 
     reset(event) {
-        if(event.detail.formSubmission.result.fetchResponse.statusCode === 200) {
+        if(event.detail.success) {
             document.getElementById(this.modalIdValue).checked = false
         }
+
         this.element.reset()
     }
 }

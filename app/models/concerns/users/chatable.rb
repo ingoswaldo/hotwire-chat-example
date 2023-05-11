@@ -9,6 +9,6 @@ module Users
       has_many :receivers, class_name: 'Chat', foreign_key: :receiver_id, inverse_of: :receiver, dependent: :destroy
     end
 
-    def my_chats = creators.or(receivers)
+    def my_chats = creators.or(receivers).order(id: :desc)
   end
 end
