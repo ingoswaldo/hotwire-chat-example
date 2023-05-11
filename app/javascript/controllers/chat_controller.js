@@ -5,6 +5,30 @@ export default class extends Controller {
         modalId: String
     }
 
+    initialize() {
+        this.observeContainer();
+    }
+
+    loadChatMessages(addedLinks){
+        addedLinks.at(0).click()
+    }
+
+    observeContainer() {
+        const observer = new MutationObserver((mutationsList, observer) => {
+            for (const mutation of mutationsList) {
+                if (mutation.type === "childList") {
+                    const addedLinks = Array.from(mutation.addedNodes).filter(node => {
+                        return node instanceof HTMLElement && node.tagName.toLowerCase() === "a";
+                    });
+
+                    if (addedLinks.length === 1) this.loadChatMessages(addedLinks)
+                }
+            }
+        })
+
+        observer.observe(document.getElementById("chats_channel"), { childList: true });
+    }
+
     reset(event) {
         if(event.detail.success) {
             document.getElementById(this.modalIdValue).checked = false

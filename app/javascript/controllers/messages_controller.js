@@ -41,6 +41,7 @@ export default class extends Controller {
             .then(html => {
                 messagesDiv.innerHTML = html;
                 messagesDiv.querySelector('#messages').lastElementChild.scrollIntoView()
+                messagesDiv.querySelector('#message_message').focus()
             });
     }
 
