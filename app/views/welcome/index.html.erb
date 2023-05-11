@@ -31,8 +31,8 @@
           </div>
         </div>
       </div>
-      <div class="overflow-y-auto h-[calc(100vh-8.5rem)]">
-        <%= turbo_frame_tag 'chats-list', src: chats_path %>
+      <div class="overflow-y-auto h-[calc(100vh-8.5rem)]", id="chats-container">
+        <%= turbo_frame_tag :chats_channel, src: chats_path, target: 'chats-container' %>
       </div>
     </div>
     <div class="basis-3/4 shadow-md">
@@ -43,5 +43,5 @@
   </div>
 </div>
 <%= render Layout::ModalComponent.new(title: 'Start Chat', id: 'modal-new-chat') do %>
-  <%= turbo_frame_tag 'new-chat', src: new_chat_path %>
+  <%= turbo_frame_tag :new_chat_channel, src: new_chat_path, target: 'modal-new-chat-content' %>
 <% end %>

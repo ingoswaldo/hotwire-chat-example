@@ -1,2 +1,2 @@
-<%= turbo_stream.update 'new-chat', partial: 'form', locals: { chat: Chat.new, users: @users } %>
-<%= turbo_stream.prepend 'chats-list', partial: 'chat', locals: { chat: @chat } %>
+<%= turbo_stream.update :new_chat_channel, target: 'modal-new-chat-content', partial: 'form', locals: { chat: Chat.new, users: @users } %>
+<%= turbo_stream.prepend :chats_channel, target: 'chats-container', partial: 'chat', locals: { chat: @chat } %>

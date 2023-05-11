@@ -7,27 +7,33 @@ export default class extends Controller {
         currentUserId: String
     }
 
-    containerTargetConnected(element) {
-        document.addEventListener("turbo:before-stream-render", this.handleStreamEvent);
+    containerTargetConnected() {
+        document.addEventListener("turbo:before-stream-render", this.handleStreamEvent.bind(this))
     }
 
-    handleStreamEvent = (event) => {
-        const templateContent = event.detail.newStream.templateElement.content.firstElementChild;
-        const chatBubbleElement = templateContent.firstElementChild
-        const creatorId = chatBubbleElement.getAttribute('data-message-creator-id')
+    containerTargetDisconnected() {
+        document.removeEventListener("turbo:before-stream-render", this.handleStreamEvent.bind(this))
+    }
 
-        if(creatorId === this.currentUserIdValue){
-            templateContent.classList.replace('chat-start', 'chat-end')
-            templateContent.firstElementChild.classList.add('chat-bubble-success', 'text-base-100')
+    handleStreamEvent(event){
+        if (event.target.target === 'messages'){
+            const templateContent = event.detail.newStream.templateElement.content.firstElementChild;
+            const chatBubbleElement = templateContent.firstElementChild
+            const creatorId = chatBubbleElement.getAttribute('data-message-creator-id')
+
+            if(creatorId === this.currentUserIdValue){
+                templateContent.classList.replace('chat-start', 'chat-end')
+                templateContent.firstElementChild.classList.add('chat-bubble-success', 'text-base-100')
+            }
+
+            this.containerTarget.append(templateContent)
+            this.containerTarget.lastElementChild.scrollIntoView()
         }
-
-        this.containerTarget.append(templateContent)
-        this.containerTarget.lastElementChild.scrollIntoView()
     }
 
     load(event) {
         event.preventDefault();
-        const chatId = this.chatIdValue;
+        const chatId = this.chatIdValue
         const messagesDiv = document.getElementById('chat-selected')
 
         fetch(`/chats/${chatId}/messages`)
