@@ -16,6 +16,6 @@ module Messages
 
     private
 
-    def after_create_broadcast = broadcast_append_to :messages_channel
+    def after_create_broadcast = broadcast_append_to "messages_chat_#{chat_id}_channel"
   end
 end

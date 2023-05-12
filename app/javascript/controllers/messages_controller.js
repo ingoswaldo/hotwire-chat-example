@@ -34,8 +34,8 @@ export default class extends Controller {
 
     load(event) {
         event.preventDefault();
-        removeBgGrayClassOfChatsContainer()
-        event.target.closest("a > *").classList.add('bg-gray-100')
+        this.updateChatContainer(event.target);
+
         const chatId = this.chatIdValue
         const messagesDiv = document.getElementById('chat-selected')
 
@@ -46,6 +46,16 @@ export default class extends Controller {
                 messagesDiv.querySelector('#messages').lastElementChild.scrollIntoView()
                 messagesDiv.querySelector('#message_message').focus()
             });
+    }
+
+    updateChatContainer(elementClicked) {
+        removeBgGrayClassOfChatsContainer()
+        if (elementClicked.tagName.toLowerCase() === 'a') {
+            elementClicked.firstElementChild.classList.add('bg-gray-100')
+            return
+        }
+
+        elementClicked.closest("a > *").classList.add('bg-gray-100')
     }
 
     reset() {
