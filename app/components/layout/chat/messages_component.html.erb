@@ -9,7 +9,7 @@
   </div>
   <div class="grid overflow-y-auto h-[calc(100vh-14.5rem)] p-10" id="messages" data-controller="messages" data-messages-target="container" data-messages-current-user-id-value="<%= @user_logged_in.id %>">
     <%= render partial: 'messages/message', collection: messages %>
-    <%= helpers.turbo_stream_from :messages_channel %>
+    <%= helpers.turbo_stream_from "messages_chat_#{@chat.id}_channel" %>
   </div>
   <div class="bg-gray-100 h-24 grid gap-3" id="form-message-container">
     <%= helpers.turbo_frame_tag :new_message_channel, target: 'form-message-container' do %>

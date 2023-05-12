@@ -11,8 +11,6 @@ export default class extends Controller {
     }
 
     loadChatMessages(addedLink){
-        removeBgGrayClassOfChatsContainer()
-        addedLink.firstElementChild.classList.add('bg-gray-100')
         addedLink.click()
     }
 
