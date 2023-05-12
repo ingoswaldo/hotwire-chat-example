@@ -1,0 +1,12 @@
+<div class="flex h-20 p-5 hover:bg-gray-100">
+  <div class="basis-1/6">
+    <div class="avatar">
+      <div class="w-10">
+        <%= user.avatar(size: 40) %>
+      </div>
+    </div>
+  </div>
+  <div class="basis-4/5 max-w-[14rem]">
+    <h3 class="font-semibold capitalize"><%= user.full_name %></h3>
+  </div>
+</div>

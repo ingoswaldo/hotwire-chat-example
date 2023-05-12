@@ -1,0 +1,47 @@
+<div class="h-screen">
+  <div class="rounded-t-lg bg-success h-10"></div>
+  <div class="flex bg-base-100 h-[calc(100vh-2.5rem)]">
+    <div class="basis-1/4 shadow-md">
+      <div class="h-24 bg-gray-100">
+        <div class="flex justify-between p-5">
+          <div class="avatar">
+            <div class="w-12">
+              <%= current_user.avatar(size: 48) %>
+            </div>
+          </div>
+          <div class="flex justify-center">
+            <label for="modal-new-chat" class="btn btn-ghost btn-circle">
+              <%= image_tag 'chat.svg', class: 'w-8' %>
+            </label>
+            <%= render Shared::Lists::DropdownComponent.new do |dropdown| %>
+              <% dropdown.with_header do %>
+                <label tabindex="0" class="btn btn-circle btn-ghost">
+                  <%= image_tag 'three_dots.svg', class: 'w-6' %>
+                </label>
+              <% end %>
+
+              <% dropdown.with_item do %>
+                <%= link_to 'Profile', edit_user_registration_path %>
+              <% end %>
+
+              <% dropdown.with_item do %>
+                <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="overflow-y-auto h-[calc(100vh-8.5rem)]" id="chats-container">
+        <%= turbo_frame_tag :chats_channel, src: chats_path, target: 'chats-container' %>
+      </div>
+    </div>
+    <div class="basis-3/4 shadow-md">
+      <div id="chat-selected" class="grid grid-cols-1 place-items-center h-full">
+        <p class="font-bold">No Chats selected</p>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render Layout::ModalComponent.new(title: 'Start Chat', id: 'modal-new-chat') do %>
+  <%= turbo_frame_tag :new_chat_channel, src: new_chat_path, target: 'modal-new-chat-content' %>
+<% end %>

@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+module Shared
+  module Lists
+    class ListItemComponent < ViewComponent::Base
+      def initialize(text:, negative_check:)
+        @text = text
+        @negative_check = negative_check
+        super
+      end
+    end
+  end
+end

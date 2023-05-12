@@ -1,0 +1,3 @@
+<%= link_to '#', data: { controller: 'messages', "messages-chat-id-value": chat.id, action: "messages#load" } do %>
+  <%= render Layout::Chat::UserComponent.new(chat:, user_logged_in: current_user) %>
+<% end %>

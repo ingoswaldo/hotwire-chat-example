@@ -1,0 +1,30 @@
+<%= render Layout::CardCenteredComponent.new(title: 'Change your password') do %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <div class="form-control">
+      <div class="field">
+        <%= f.label :password, class: 'label' do %>
+          <span class="label-text">New Password</span>
+        <% end %>
+        <%= f.password_field :password, autocomplete: 'new-password', class: "input input-bordered focus:input-accent w-full max-w-xs" %>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <div class="field">
+        <%= f.label :password_confirmation, class: 'label' do %>
+          <span class="label-text">Confirm New Password</span>
+        <% end %>
+        <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'input input-bordered focus:input-accent w-full max-w-xs' %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Change my password" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+<% end %>
