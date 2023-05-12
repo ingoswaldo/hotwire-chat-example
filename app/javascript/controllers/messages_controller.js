@@ -1,4 +1,5 @@
-import { Controller } from '@hotwired/stimulus';
+import { Controller } from '@hotwired/stimulus'
+import { removeBgGrayClassOfChatsContainer } from "../globalFunctions"
 
 export default class extends Controller {
     static targets = ['container']
@@ -33,6 +34,8 @@ export default class extends Controller {
 
     load(event) {
         event.preventDefault();
+        removeBgGrayClassOfChatsContainer()
+        event.target.closest("a > *").classList.add('bg-gray-100')
         const chatId = this.chatIdValue
         const messagesDiv = document.getElementById('chat-selected')
 

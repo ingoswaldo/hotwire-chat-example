@@ -1,4 +1,5 @@
 import { Controller } from '@hotwired/stimulus'
+import { removeBgGrayClassOfChatsContainer } from "../globalFunctions"
 
 export default class extends Controller {
     static values= {
@@ -9,8 +10,10 @@ export default class extends Controller {
         this.observeContainer();
     }
 
-    loadChatMessages(addedLinks){
-        addedLinks.at(0).click()
+    loadChatMessages(addedLink){
+        removeBgGrayClassOfChatsContainer()
+        addedLink.firstElementChild.classList.add('bg-gray-100')
+        addedLink.click()
     }
 
     observeContainer() {
@@ -21,7 +24,7 @@ export default class extends Controller {
                         return node instanceof HTMLElement && node.tagName.toLowerCase() === "a";
                     });
 
-                    if (addedLinks.length === 1) this.loadChatMessages(addedLinks)
+                    if (addedLinks.length === 1) this.loadChatMessages(addedLinks.at(0))
                 }
             }
         })
