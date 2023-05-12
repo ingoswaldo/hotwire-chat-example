@@ -8,14 +8,14 @@ export default class extends Controller {
     }
 
     containerTargetConnected() {
-        document.addEventListener("turbo:before-stream-render", this.handleStreamEvent.bind(this))
+        document.addEventListener("turbo:before-stream-render", this.handleStreamEvent)
     }
 
     containerTargetDisconnected() {
-        document.removeEventListener("turbo:before-stream-render", this.handleStreamEvent.bind(this))
+        document.removeEventListener("turbo:before-stream-render", this.handleStreamEvent)
     }
 
-    handleStreamEvent(event){
+    handleStreamEvent = event => {
         if (event.target.target === 'messages'){
             const templateContent = event.detail.newStream.templateElement.content.firstElementChild;
             const chatBubbleElement = templateContent.firstElementChild
