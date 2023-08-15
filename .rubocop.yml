@@ -38,3 +38,7 @@ Style/Documentation:
 Style/ReturnNil:
   Description: 'Use return instead of return nil.'
   Enabled: true
+
+Lint/MissingSuper:
+  Exclude:
+    - '**/app/services/**/*'

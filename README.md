@@ -24,4 +24,4 @@ Any computer that can run this application.
 2. Change to the project's root directory, for example `cd hotwire-chat-example`
 3. Set up a user and database on postgres on your local machine and add the configuration in the `.env` file,
    for example `DATABASE` and `DATABASE_TEST`
-4. Please run `bundle exec rails server`
+4. Please run `./bin/dev`
