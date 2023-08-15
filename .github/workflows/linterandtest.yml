@@ -35,7 +35,7 @@ jobs:
           bundler-cache: true
       # Set up database
       - name: Set up database schema
-        run: bin/rails db:setup
+        run: bin/rails db:schema:setup
       # Install daisyui
       - name: Install Daisyui
         run: npm i daisyui
