@@ -2,8 +2,9 @@
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
-require 'rails/test_help'
+require 'simplecov_helper'
 require 'minitest/autorun'
+require 'rails/test_help'
 
 module ActiveSupport
   class TestCase

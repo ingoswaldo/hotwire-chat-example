@@ -68,7 +68,6 @@ group :development, :test do
 
   # Use Rubocop to lint the code
   gem 'rubocop', '~> 1.50', '>= 1.50.2'
-  gem 'rubocop-capybara', '~> 2.18'
   gem 'rubocop-rails', '~> 2.19', '>= 2.19.1'
 end
 
@@ -78,8 +77,5 @@ group :development do
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
+  gem 'simplecov', '~> 0.22.0'
 end
