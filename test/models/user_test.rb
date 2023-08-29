@@ -3,15 +3,23 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test 'should save user' do
-    user = User.new(email: 'whatever@example.com', full_name: 'whatever', password: 'whatever',
-                    password_confirmation: 'whatever')
-    user.skip_confirmation!
-    assert user.save
+  def setup = @subject = User.new(full_name: 'John Doe', email: 'john.doe@example.com', password: 'password')
+
+  def test_has_many_creators = assert_respond_to(@subject, :creators)
+
+  def test_has_many_receivers = assert_respond_to(@subject, :receivers)
+
+  def test_has_many_messages = assert_respond_to(@subject, :messages)
+
+  def test_saves_user_with_valid_attributes = assert @subject.valid?
+
+  def test_requires_email
+    @subject.email = nil
+    assert_not @subject.valid?
   end
 
-  test 'should not save user without email' do
-    user = User.new
-    assert_not user.save
+  def test_requires_full_name
+    @subject.full_name = nil
+    assert_not @subject.valid?
   end
 end
