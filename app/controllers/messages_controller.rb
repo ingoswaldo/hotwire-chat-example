@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
   def new; end
 
   def create
-    @message = @user.messages.create(message_params.merge({ chat: @chat }))
+    @message = @user.messages.new(message_params.merge({ chat: @chat }))
 
     respond_to do |format|
       return format.turbo_stream if @message.save

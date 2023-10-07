@@ -51,6 +51,22 @@
       </div>
     </div>
 
+    <div class="form-control">
+      <div class="field">
+        <%= f.label :translation_language, class: 'label' do %>
+          <span class="label-text">Translation Language</span>
+        <% end %>
+        <%= f.select :translation_language, [%w[English en], %w[French fr], %w[Portuguese pt], %w[Spanish es]], {}, class: "select select-accent w-full max-w-xs" %>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <%= f.label :live_translation, class: 'label cursor-pointer' do %>
+        <span class="label-text">Live Translation</span>
+        <%= f.check_box :live_translation, { class: "toggle toggle-success" } %>
+      <% end %>
+    </div>
+
     <div class="form-control mt-6">
       <%= f.submit "Update", class: 'btn btn-success' %>
     </div>
