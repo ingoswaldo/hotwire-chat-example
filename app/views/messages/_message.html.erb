@@ -4,6 +4,6 @@
   </div>
 <% else %>
   <div class="chat chat-start">
-    <div class="chat-bubble" data-message-creator-id="<%= message.user_id %>"><%= message.message %></div>
+    <div class="chat-bubble" data-message-creator-id="<%= message.user_id %>" data-message-source-language="<%= message.user.translation_language %>"><%= message.message %></div>
   </div>
 <% end %>
