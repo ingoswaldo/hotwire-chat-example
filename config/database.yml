@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: hotwire_chat_example_production
-  username: hotwire_chat_example
-  password: <%= ENV["HOTWIRE_CHAT_EXAMPLE_DATABASE_PASSWORD"] %>
+  database: <%= Rails.application.credentials.google.db.production[:name] %>
+  username: <%= Rails.application.credentials.google.db.production[:username] %>
+  password: <%= Rails.application.credentials.google.db.production[:password] %>
+  host: "<%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/<%= Rails.application.credentials.google.db.production[:connection_name] %>"
