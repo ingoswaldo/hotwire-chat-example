@@ -13,4 +13,8 @@ class TranslateControllerTest < BaseControllerTest
       assert_response :success
     end
   end
+
+  def test_does_not_translate_a_message_without_message
+    assert_raises(ArgumentError) { post translate_path, params: { source_language: 'en' } }
+  end
 end
