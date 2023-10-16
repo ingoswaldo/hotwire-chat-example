@@ -19,3 +19,9 @@ confirmed: {
   full_name: 'user confirmed',
   confirmed_at: '<%= Time.zone.now %>'
 }
+
+spanish: {
+  email: 'spanish@example.com',
+  full_name: 'spanish user',
+  translation_language: 'es'
+}

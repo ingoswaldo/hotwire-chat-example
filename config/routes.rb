@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :chats, only: %i[index new create] do
       resources :messages, only: %i[index create]
     end
+    post 'translate', to: 'translate#translate'
     root to: 'welcome#index', as: :authenticated_root
   end
   root to: redirect('/users/sign_in')
