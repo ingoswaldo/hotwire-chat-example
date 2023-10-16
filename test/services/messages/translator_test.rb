@@ -4,14 +4,7 @@ require 'test_helper'
 
 class TranslatorTest < ActiveSupport::TestCase
   def test_translates_a_text_with_valid_params
-    translated_text = nil
-    mock_google_translation_service = Minitest::Mock.new
-    mock_google_translation_service.expect(:translate_text, mock_translations_response, **translate_text_args)
-
-    google_translate_service_class.stub(:translation_service, mock_google_translation_service) do
-      translated_text = translate_service_class.call(contents.first, target_language_code)
-    end
-
+    translated_text = mock_google_translator_service(contents.first, target_language_code, mock_translations_response)
     assert_equal(translate_text, translated_text)
   end
 
@@ -23,26 +16,13 @@ class TranslatorTest < ActiveSupport::TestCase
   end
 
   def test_returns_nil_when_the_google_response_is_nil
-    translated_text = nil
-    mock_google_translation_service = Minitest::Mock.new
-    mock_google_translation_service.expect(:translate_text, nil, **translate_text_args)
-
-    google_translate_service_class.stub(:translation_service, mock_google_translation_service) do
-      translated_text = translate_service_class.call(contents.first, target_language_code)
-    end
-
+    translated_text = mock_google_translator_service(contents.first, target_language_code, nil)
     assert_nil(translated_text)
   end
 
   private
 
   def contents = ['Hello, world!']
-
-  def google_translate_service_class = Google::Cloud::Translate
-
-  def translate_text_args = { contents:, target_language_code:, parent:, mime_type: }
-
-  def mime_type = Rails.application.credentials.dig(:google, :mime_type)
 
   def mock_translations_response = translations_struct.new([translate_text_struct.new(translate_text)])
 
@@ -51,8 +31,6 @@ class TranslatorTest < ActiveSupport::TestCase
   def project = Rails.application.credentials.dig(:google, :credentials, :project_id)
 
   def target_language_code = 'es'
-
-  def translate_service_class = Messages::Translator
 
   def translate_text = '¡Hola, mundo!'
 
