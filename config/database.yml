@@ -81,7 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: <%= Rails.application.credentials.google.db.production[:name] %>
-  username: <%= Rails.application.credentials.google.db.production[:username] %>
-  password: <%= Rails.application.credentials.google.db.production[:password] %>
-  host: "<%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/<%= Rails.application.credentials.google.db.production[:connection_name] %>"
+  database: <%= Rails.application.credentials.dig(:google, :db, :production, :name) %>
+  username: <%= Rails.application.credentials.dig(:google, :db, :production, :username) %>
+  password: <%= Rails.application.credentials.dig(:google, :db, :production, :password) %>
+  host: "<%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/<%= Rails.application.credentials.dig(:google, :db, :production, :connection_name) %>"
