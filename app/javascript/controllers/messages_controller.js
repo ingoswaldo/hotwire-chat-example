@@ -1,5 +1,5 @@
 import { Controller } from '@hotwired/stimulus'
-import { removeBgGrayClassOfChatsContainer } from "../globalFunctions"
+import { removeBgGrayClassOfChatsContainer } from "@global-functions"
 
 export default class extends Controller {
     static targets = ['container']

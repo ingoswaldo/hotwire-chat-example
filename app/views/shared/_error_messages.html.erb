@@ -14,9 +14,9 @@
   </div>
 <% end %>
 
-<% if notice || alert %>
+<% if alert %>
   <div class="flex space-x-2 items-center">
     <%= inline_svg_tag 'negative-cross-mark.svg', class: 'text-error' %>
-    <span class="text-sm sm:text-base text-error"><%= notice || alert %></span>
+    <span class="text-sm sm:text-base text-error"><%= alert %></span>
   </div>
 <% end %>
