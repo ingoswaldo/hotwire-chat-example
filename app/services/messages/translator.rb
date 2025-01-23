@@ -11,7 +11,8 @@ module Messages
 
     def call
       response = translate.translate_text(contents: [@text], target_language_code:, parent:, mime_type:)
-      response&.translations&.first&.translated_text
+      translated_text = response&.translations&.first
+      translated_text&.translated_text
     end
 
     private

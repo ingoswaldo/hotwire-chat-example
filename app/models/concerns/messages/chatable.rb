@@ -9,7 +9,7 @@ module Messages
 
       after_create_commit :after_create_broadcast
 
-      enum status: {
+      enum :status, {
         sent: 0, received: 1, read: 2
       }
     end
